@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Midhula Farm Hut — Fish Farm</title>
+  <meta name="description" content="Midhula Farm Hut — healthy, vibrant fish raised in clean, living ponds." />
+  <meta name="theme-color" content="#06141b" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Interactive pond -->
+  <div class="pond" id="pond" aria-hidden="true">
+    <canvas id="water" class="layer"></canvas>
+    <canvas id="overlay" class="layer"></canvas>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav">
+    <a class="brand" href="#" aria-label="Midhula Farm Hut — home">
+      <span class="brand-text">
+        <span class="brand-name">Midhula</span>
+        <span class="brand-sub">Farm Hut</span>
+      </span>
+    </a>
+
+    <nav class="links" id="nav-links" aria-label="Primary">
+      <a href="#farm">Our Farm</a>
+      <a href="#fish">Our Fish</a>
+      <a href="#ponds">The Ponds</a>
+      <a href="#visit">Visit</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <main class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow reveal" style="--d:0.2s"><span class="rule"></span>Freshwater fish farm</p>
+      <h1 class="reveal" style="--d:0.35s">
+        Life, raised in<br /><em>still water.</em>
+      </h1>
+      <p class="lede reveal" style="--d:0.55s">
+        At Midhula Farm Hut we raise healthy, vibrant fish in clean, living ponds —
+        tended with patience, care and a deep respect for nature.
+      </p>
+      <div class="actions reveal" style="--d:0.7s">
+        <a href="#fish" class="btn btn-primary">
+          Explore our fish
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#visit" class="btn btn-ghost">Plan a visit</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="hint reveal" style="--d:1.4s" aria-hidden="true">
+    <span class="hint-dot"></span>
+    <span class="hint-desktop">Move through the water &nbsp;·&nbsp; click to feed the koi</span>
+    <span class="hint-touch">Touch the water &nbsp;·&nbsp; tap to feed the koi</span>
+  </div>
+
+  <script src="assets/js/water.js"></script>
+  <script src="assets/js/koi.js"></script>
+  <script src="assets/js/smallfish.js"></script>
+  <script src="assets/js/life.js"></script>
+  <script src="assets/js/leaves.js"></script>
+  <script src="assets/js/pond.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('menu-toggle');
+      btn.addEventListener('click', function () {
+        var open = document.body.classList.toggle('menu-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      document.querySelectorAll('#nav-links a').forEach(function (a) {
+        a.addEventListener('click', function () { document.body.classList.remove('menu-open'); });
+      });
+    })();
+  </script>
+</body>
+</html>
